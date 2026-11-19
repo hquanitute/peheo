@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>A Little Surprise For My Man ❤️ | 19.11</title>
+
+  <!-- Tailwind CSS for responsive layout and utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts with full Vietnamese character & diacritic support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Lora:ital,wght@0,500;0,600;1,500&family=Nunito:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CUSTOM ROMANTIC THEME VARIABLES & BASE STYLES
+       ========================================================================== */
+    :root {
+      --blush-pink: #FADADD;
+      --baby-pink: #F8BBD0;
+      --soft-pink: #FCE4EC;
+      --warm-cream: #FFFDF9;
+      --card-cream: #FFF8F2;
+      --soft-red: #E56B70;
+      --deep-rose: #D84359;
+      --gold-accent: #F4C97A;
+      --text-warm: #5D3A42;
+      --text-muted: #8E626C;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100dvh;
+      overflow-x: hidden;
+      font-family: 'Quicksand', 'Nunito', sans-serif;
+      color: var(--text-warm);
+      background: radial-gradient(circle at 20% 15%, #FFFDF9 0%, #FCE4EC 48%, #FADADD 100%);
+      user-select: none;
+    }
+
+    /* Soft ambient background glowing orbs */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+      animation: orbFloat 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes orbFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(25px, -30px) scale(1.08); }
+      100% { transform: translate(-20px, 20px) scale(0.95); }
+    }
+
+    /* ==========================================================================
+       SCREEN TRANSITIONS & STAGE VISIBILITY
+       ========================================================================== */
+    .stage {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      z-index: 10;
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  visibility 0.8s;
+    }
+
+    .stage.hidden-stage {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0.94) translateY(18px);
+    }
+
+    .stage.active-stage {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+
+    /* ==========================================================================
+       STAGE 1: 3D-STYLED INTERACTIVE GIFT BOX
+       ========================================================================== */
+    .gift-wrapper {
+      position: relative;
+      width: 210px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      perspective: 900px;
+      transition: transform 0.3s ease;
+    }
+
+    @media (min-width: 640px) {
+      .gift-wrapper {
+        width: 245px;
+        height: 255px;
+      }
+    }
+
+    .gift-wrapper:hover:not(.opening) {
+      transform: scale(1.05);
+    }
+
+    .gift-wrapper:active:not(.opening) {
+      transform: scale(0.97);
+    }
+
+    /* Soft radiant halo behind the gift box */
+    .gift-halo {
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(248, 187, 208, 0.5) 55%, rgba(250, 218, 221, 0) 75%);
+      animation: pulseHalo 3.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulseHalo {
+      0%, 100% { transform: scale(0.95); opacity: 0.75; }
+      50% { transform: scale(1.12); opacity: 1; }
+    }
+
+    /* Gentle inviting wobble before opening */
+    .gift-box-assembly {
+      position: relative;
+      width: 176px;
+      height: 176px;
+      transform-origin: bottom center;
+      animation: idleGiftBounce 2.8s ease-in-out infinite;
+    }
+
+    @media (min-width: 640px) {
+      .gift-box-assembly {
+        width: 204px;
+        height: 204px;
+      }
+    }
+
+    @keyframes idleGiftBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      18% { transform: translateY(-7px) rotate(-2.2deg) scale(1.02); }
+      32% { transform: translateY(-3px) rotate(2.2deg) scale(1.02); }
+      46% { transform: translateY(-6px) rotate(-1.2deg) scale(1.01); }
+      60% { transform: translateY(0) rotate(0deg) scale(1); }
+    }
+
+    /* Gift Base */
+    .gift-base {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 82%;
+      height: 64%;
+      background: linear-gradient(145deg, #FF9BB3 0%, #F47A96 55%, #E35D7B 100%);
+      border-radius: 14px 14px 20px 20px;
+      box-shadow:
+        0 18px 34px -8px rgba(216, 67, 89, 0.35),
+        inset 0 -8px 16px rgba(186, 45, 72, 0.2),
+        inset 0 4px 10px rgba(255, 255, 255, 0.45);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    /* Delicate polka-dot / heart sheen pattern on box */
+    .gift-base::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.28) 2px, transparent 2px);
+      background-size: 18px 18px;
+      opacity: 0.75;
+    }
+
+    /* Vertical Satin Ribbon on Base */
+    .gift-ribbon-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24%;
+      background: linear-gradient(90deg, #FFFDF9 0%, #FFF3E6 50%, #F8E2CE 100%);
+      box-shadow: 0 0 10px rgba(173, 45, 68, 0.18);
+    }
+
+    .gift-ribbon-v::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42%;
+      background: linear-gradient(90deg, #E56B70, #D84359, #E56B70);
+    }
+
+    /* Gift Lid & Puffy Bow */
+    .gift-lid-group {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      height: 36%;
+      z-index: 4;
+      transform-origin: center bottom;
+      transition: transform 0.95s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.75s ease;
+    }
+
+    .gift-lid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 56%;
+      background: linear-gradient(145deg, #FFB3C6 0%, #F788A3 60%, #E76785 100%);
+      border-radius: 14px;
+      box-shadow:
+        0 8px 16px rgba(190, 48, 75, 0.25),
+        inset 0 3px 8px rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+    }
+
+    .gift-lid-ribbon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22%;
+      background: linear-gradient(90deg, #FFFDF9 0%, #FFF3E6 50%, #F8E2CE 100%);
+    }
+
+    .gift-lid-ribbon::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 42%;
+      background: linear-gradient(90deg, #E56B70, #D84359, #E56B70);
+    }
+
+    /* Puffy Ribbon Bow SVG container */
+    .gift-bow {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 108px;
+      height: 62px;
+      filter: drop-shadow(0 6px 10px rgba(186, 45, 72, 0.25));
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Warm light beam shooting out when box opens */
+    .gift-light-burst {
+      position: absolute;
+      bottom: 42%;
+      left: 50%;
+      transform: translateX(-50%) scale(0.1);
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #FFFFFF 0%, rgba(255, 245, 214, 0.92) 30%, rgba(250, 218, 221, 0) 72%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Opening State Animations */
+    .gift-wrapper.opening .gift-box-assembly {
+      animation: boxPopShake 0.45s ease forwards;
+    }
+
+    .gift-wrapper.opening .gift-bow {
+      transform: translateX(-50%) scale(1.22) translateY(-8px);
+    }
+
+    .gift-wrapper.opening .gift-lid-group {
+      transform: translateX(-50%) translateY(-105px) rotate(-18deg) scale(1.06);
+      opacity: 0;
+    }
+
+    .gift-wrapper.opening .gift-light-burst {
+      animation: lightBurstExpand 1.15s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Mini preview card rising out from inside the open gift box */
+    .box-emerging-photo {
+      position: absolute;
+      bottom: 34%;
+      left: 50%;
+      width: 112px;
+      height: 145px;
+      transform: translateX(-50%) translateY(35px) scale(0.35);
+      opacity: 0;
+      border-radius: 14px;
+      padding: 5px;
+      background: #FFFFFF;
+      border: 2px solid #F8BBD0;
+      box-shadow: 0 12px 28px rgba(216, 67, 89, 0.4), 0 0 22px rgba(255, 255, 255, 0.95);
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.18s, opacity 0.45s ease 0.18s;
+    }
+
+    .box-emerging-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 9px;
+    }
+
+    .gift-wrapper.opening .box-emerging-photo {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-68px) scale(1.12);
+    }
+
+    @keyframes boxPopShake {
+      0% { transform: scale(1); }
+      35% { transform: scale(1.08, 0.92); }
+      70% { transform: scale(0.96, 1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes lightBurstExpand {
+      0% { transform: translateX(-50%) scale(0.1); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: translateX(-50%) scale(2.4); opacity: 0; }
+    }
+
+    /* ==========================================================================
+       STAGE 2: ROMANTIC KEEPSAKE PHOTO FRAME
+       ========================================================================== */
+    .photo-frame-outer {
+      position: relative;
+      background: linear-gradient(165deg, #FFFFFF 0%, #FFF8F2 55%, #FCE4EC 100%);
+      padding: 14px 14px 24px 14px;
+      border-radius: 26px;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 20px 50px -10px rgba(216, 67, 89, 0.28),
+        0 0 35px rgba(248, 187, 208, 0.65),
+        inset 0 0 0 1px rgba(229, 107, 112, 0.16);
+      max-width: min(86vw, 355px);
+      width: 100%;
+      animation: frameFloat 5s ease-in-out infinite;
+    }
+
+    @media (min-width: 640px) {
+      .photo-frame-outer {
+        max-width: 390px;
+        padding: 16px 16px 28px 16px;
+      }
+    }
+
+    @keyframes frameFloat {
+      0%, 100% { transform: translateY(0px) rotate(-0.6deg); }
+      50% { transform: translateY(-7px) rotate(0.6deg); }
+    }
+
+    /* Inner scalloped / stitched romantic border */
+    .photo-inner-mat {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      max-height: 54dvh;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #FADADD;
+      box-shadow: inset 0 2px 10px rgba(93, 58, 66, 0.15);
+      border: 2px solid #F8BBD0;
+    }
+
+    .couple-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.8s ease;
+    }
+
+    /* Smooth rise-from-box entrance when Stage 2 activates */
+    .stage.active-stage .photo-frame-outer {
+      animation: photoEmergeFromBox 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+                 frameFloat 5s ease-in-out 0.85s infinite;
+    }
+
+    @keyframes photoEmergeFromBox {
+      0% {
+        opacity: 0;
+        transform: translateY(48px) scale(0.76);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+      }
+    }
+
+    .photo-frame-outer:hover .couple-photo {
+      transform: scale(1.025);
+    }
+
+    /* Subtle warm romantic vignette on photo edges */
+    .photo-inner-mat::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 24px rgba(250, 218, 221, 0.35);
+      pointer-events: none;
+    }
+
+    /* Corner Heart Charms on Photo Frame */
+    .frame-charm {
+      position: absolute;
+      z-index: 5;
+      filter: drop-shadow(0 4px 8px rgba(216, 67, 89, 0.25));
+      animation: charmTwinkle 2.8s ease-in-out infinite alternate;
+    }
+
+    @keyframes charmTwinkle {
+      0% { transform: scale(0.95) rotate(-5deg); }
+      100% { transform: scale(1.08) rotate(5deg); }
+    }
+
+    /* Heartbeat Romantic CTA Button */
+    .btn-romantic {
+      position: relative;
+      background: linear-gradient(135deg, #F0788C 0%, #D84359 100%);
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      border-radius: 9999px;
+      box-shadow:
+        0 10px 24px -4px rgba(216, 67, 89, 0.45),
+        inset 0 2px 4px rgba(255, 255, 255, 0.45);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+      animation: softHeartbeat 2.4s ease-in-out infinite;
+    }
+
+    .btn-romantic:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow:
+        0 14px 28px -4px rgba(216, 67, 89, 0.55),
+        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-romantic:active {
+      transform: scale(0.97);
+    }
+
+    @keyframes softHeartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.035); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.025); }
+      70% { transform: scale(1); }
+    }
+
+    /* ==========================================================================
+       STAGE 3: DIGITAL LOVE LETTER CARD
+       ========================================================================== */
+    .love-letter-card {
+      position: relative;
+      width: 100%;
+      max-width: 520px;
+      background:
+        radial-gradient(circle at top right, rgba(252, 228, 236, 0.85) 0%, transparent 45%),
+        radial-gradient(circle at bottom left, rgba(250, 218, 221, 0.75) 0%, transparent 45%),
+        linear-gradient(180deg, #FFFDF9 0%, #FFF6F0 100%);
+      border-radius: 28px;
+      padding: 2rem 1.5rem 2.15rem 1.5rem;
+      border: 2px solid #FFFFFF;
+      box-shadow:
+        0 24px 60px -12px rgba(186, 56, 78, 0.24),
+        0 4px 16px rgba(229, 107, 112, 0.12),
+        inset 0 0 0 1.5px rgba(248, 187, 208, 0.65);
+      transform-origin: top center;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .love-letter-card {
+        padding: 2.75rem 2.6rem 2.6rem 2.6rem;
+      }
+    }
+
+    /* Unfolding entrance animation when Stage 3 becomes active */
+    .stage.active-stage .love-letter-card {
+      animation: letterUnfold 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes letterUnfold {
+      0% {
+        opacity: 0;
+        transform: perspective(1000px) rotateX(-16deg) translateY(28px) scale(0.93);
+      }
+      100% {
+        opacity: 1;
+        transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+      }
+    }
+
+    /* Subtle lined stationery paper background */
+    .stationery-lines {
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 33px,
+        rgba(244, 187, 203, 0.26) 34px
+      );
+    }
+
+    .letter-heading {
+      font-family: 'Cormorant Garamond', 'Lora', serif;
+      color: var(--deep-rose);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .letter-body {
+      font-family: 'Lora', 'Quicksand', serif;
+      color: #57333C;
+      line-height: 1.85;
+    }
+
+    /* Floating particles layer */
+    .particle-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -40px;
+      animation: floatUp linear forwards;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      15% {
+        opacity: var(--max-opacity, 0.65);
+      }
+      85% {
+        opacity: var(--max-opacity, 0.65);
+      }
+      100% {
+        transform: translateY(-112vh) translateX(var(--drift, 25px)) scale(1.05) rotate(var(--rot, 20deg));
+        opacity: 0;
+      }
+    }
+
+    /* Click burst mini hearts */
+    .burst-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 50;
+      animation: burstFly 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes burstFly {
+      0% {
+        transform: translate(-50%, -50%) scale(0.3);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--bx)), calc(-50% + var(--by))) scale(1.1) rotate(var(--brot));
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Soft Ambient Glow Orbs -->
+  <div class="ambient-orb w-72 h-72 bg-pink-200 top-[-40px] left-[-50px]"></div>
+  <div class="ambient-orb w-80 h-80 bg-rose-200 bottom-[-60px] right-[-40px]" style="animation-delay: -5s;"></div>
+  <div class="ambient-orb w-64 h-64 bg-amber-100 top-1/3 right-1/4" style="animation-delay: -9s;"></div>
+
+  <!-- Continuous Floating Hearts & Sparkles Canvas -->
+  <div id="particleLayer" class="particle-layer" aria-hidden="true"></div>
+
+  <!-- Top Utility Controls (Sound Chime Toggle & Replay Button) -->
+  <header class="fixed top-0 left-0 right-0 z-30 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 pointer-events-none">
+    <div class="pointer-events-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/75 backdrop-blur-md border border-pink-200/80 shadow-sm text-xs sm:text-sm font-semibold text-rose-500">
+      <span>19.11</span>
+      <span class="text-pink-300">•</span>
+      <span>Happy Men's Day</span>
+    </div>
+
+    <div class="pointer-events-auto flex items-center gap-2">
+      <!-- Replay button (shown after opening gift) -->
+      <button
+        id="replayBtn"
+        type="button"
+        title="Open gift again"
+        class="hidden items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 hover:bg-white backdrop-blur-md border border-pink-200/80 shadow-sm text-xs font-semibold text-rose-500 transition active:scale-95"
+      >
+        <span>Replay</span>
+        <span aria-hidden="true">↺</span>
+      </button>
+
+      <!-- Gentle Music Box Chime Toggle -->
+      <button
+        id="soundToggleBtn"
+        type="button"
+        aria-label="Toggle romantic chime sound"
+        title="Toggle sweet chimes"
+        class="w-9 h-9 rounded-full bg-white/80 hover:bg-white backdrop-blur-md border border-pink-200/80 shadow-sm flex items-center justify-center text-rose-500 transition active:scale-95"
+      >
+        <span id="soundIcon" class="text-base">🎵</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       STAGE 1: OPENING SCREEN – THE SURPRISE LOVE GIFT BOX
+       ======================================================================== -->
+  <main id="stage1" class="stage active-stage" aria-label="Surprise Gift Box">
+    <div class="flex flex-col items-center text-center max-w-md w-full px-2">
+      <!-- Cute Header Message -->
+      <div class="mb-6 sm:mb-8 space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-white/80 border border-pink-200/70 text-rose-400 text-xs font-bold tracking-wider uppercase shadow-sm">
+          Special Delivery 💌
+        </span>
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#6B3A47] leading-snug tracking-tight drop-shadow-sm">
+          A little surprise for my man ❤️
+        </h1>
+      </div>
+
+      <!-- Interactive 3D-Styled Gift Box -->
+      <div
+        id="giftBoxTrigger"
+        role="button"
+        tabindex="0"
+        aria-label="Tap the gift to open it"
+        class="gift-wrapper my-2 sm:my-4 focus:outline-none"
+      >
+        <div class="gift-halo"></div>
+        <div class="gift-light-burst"></div>
+
+        <!-- Photo Emerging Directly From Inside the Open Gift Box -->
+        <div class="box-emerging-photo" aria-hidden="true">
+          <img
+            src="1795049523962_2294882707572320824_5972127731430104832_c41dc9acb1b6030e91d690c2594c73ea_2.jpg"
+            onerror="this.onerror=null;this.src='1795049523962_2294882707572320824_5972127731430104832_c41dc9acb1b6030e91d690c2594c73ea.jpg';"
+            alt=""
+            class="emerging-photo-img"
+          />
+        </div>
+
+        <div class="gift-box-assembly">
+          <!-- Lid + Puffy Bow -->
+          <div class="gift-lid-group">
+            <!-- Custom SVG Puffy Romantic Bow -->
+            <svg class="gift-bow" viewBox="0 0 140 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Left Bow Loop -->
+              <path d="M68 48C46 18 12 16 14 42C16 62 48 56 68 50Z" fill="url(#bowGradLeft)" stroke="#FFFDF9" stroke-width="2.5"/>
+              <!-- Right Bow Loop -->
+              <path d="M72 48C94 18 128 16 126 42C124 62 92 56 72 50Z" fill="url(#bowGradRight)" stroke="#FFFDF9" stroke-width="2.5"/>
+              <!-- Left Ribbon Tail -->
+              <path d="M64 52L38 74L48 60L34 58L60 48Z" fill="#D84359"/>
+              <!-- Right Ribbon Tail -->
+              <path d="M76 52L102 74L92 60L106 58L80 48Z" fill="#D84359"/>
+              <!-- Center Knot -->
+              <rect x="59" y="38" width="22" height="20" rx="8" fill="url(#knotGrad)" stroke="#FFFDF9" stroke-width="2.5"/>
+              <defs>
+                <linearGradient id="bowGradLeft" x1="14" y1="22" x2="68" y2="54" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF8DA1"/>
+                  <stop offset="1" stop-color="#D84359"/>
+                </linearGradient>
+                <linearGradient id="bowGradRight" x1="126" y1="22" x2="72" y2="54" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF8DA1"/>
+                  <stop offset="1" stop-color="#D84359"/>
+                </linearGradient>
+                <linearGradient id="knotGrad" x1="59" y1="38" x2="81" y2="58" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FF9EB0"/>
+                  <stop offset="1" stop-color="#C9354B"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="gift-lid">
+              <div class="gift-lid-ribbon"></div>
+            </div>
+          </div>
+
+          <!-- Box Base -->
+          <div class="gift-base">
+            <div class="gift-ribbon-v"></div>
+            <!-- Cute little heart tag hanging on front -->
+            <div class="absolute top-3 right-3 bg-white/95 text-rose-500 rounded-full w-7 h-7 flex items-center justify-center shadow-sm text-xs transform rotate-12">
+              🐷
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tap Instruction -->
+      <div class="mt-6 sm:mt-8">
+        <p id="tapInstruction" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-sm border border-pink-200/80 text-rose-500 font-bold text-sm sm:text-base shadow-sm animate-pulse">
+          <span>✨</span>
+          <span>Tap the gift to open it!</span>
+          <span>✨</span>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       STAGE 2: REVEAL PERSONAL PHOTO IN ROMANTIC FRAME
+       ======================================================================== -->
+  <section id="stage2" class="stage hidden-stage" aria-label="Our Sweet Memory">
+    <div class="flex flex-col items-center justify-center w-full max-w-md mx-auto">
+      <!-- Sweet top caption -->
+      <p class="mb-3 sm:mb-4 text-sm sm:text-base font-bold text-rose-500 bg-white/80 backdrop-blur-sm px-4 py-1 rounded-full border border-pink-200/80 shadow-sm">
+        My favorite place is right next to you 💕
+      </p>
+
+      <!-- Romantic Keepsake Photo Frame -->
+      <div class="photo-frame-outer">
+        <!-- Decorative Corner Heart & Sparkle Charms -->
+        <span class="frame-charm -top-3.5 -left-3 text-2xl sm:text-3xl" aria-hidden="true">💖</span>
+        <span class="frame-charm -top-3 -right-3 text-xl sm:text-2xl" style="animation-delay: 0.7s;" aria-hidden="true">✨</span>
+        <span class="frame-charm -bottom-3 -left-2.5 text-xl sm:text-2xl" style="animation-delay: 1.2s;" aria-hidden="true">🌸</span>
+        <span class="frame-charm -bottom-3.5 -right-3 text-2xl sm:text-3xl" style="animation-delay: 0.4s;" aria-hidden="true">💝</span>
+
+        <!-- Portrait Photo Container -->
+        <div class="photo-inner-mat">
+          <img
+            id="mainCouplePhoto"
+            src="couple.jpg"
+            onerror="this.onerror=null;this.src='1795049523962_2294882707572320824_5972127731430104832_c41dc9acb1b6030e91d690c2594c73ea.jpg';"
+            alt="Our sweet photo together"
+            class="couple-photo"
+          />
+        </div>
+
+        <!-- Polaroid Bottom Caption Strip -->
+        <div class="pt-3.5 pb-0.5 flex items-center justify-center gap-2 text-rose-500 font-bold text-sm sm:text-base">
+          <span>You &amp; Me</span>
+          <span>❤️</span>
+          <span>19 . 11</span>
+        </div>
+      </div>
+
+      <!-- Button to Reveal the Love Letter -->
+      <div class="mt-5 sm:mt-6">
+        <button
+          id="toLetterBtn"
+          type="button"
+          class="btn-romantic px-7 py-3.5 sm:px-8 sm:py-4 text-base sm:text-lg inline-flex items-center gap-2 cursor-pointer"
+        >
+          <span>There's more for you 💌</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       STAGE 3: THE ROMANTIC LOVE LETTER CARD
+       ======================================================================== -->
+  <section id="stage3" class="stage hidden-stage" aria-label="Love Letter">
+    <div class="flex flex-col items-center justify-center w-full max-w-lg mx-auto my-auto">
+      <!-- Digital Romantic Greeting Card -->
+      <article class="love-letter-card">
+        <!-- Decorative Top Heart & Wax Seal Motif -->
+        <div class="flex items-center justify-between mb-4 sm:mb-5">
+          <div class="flex items-center gap-1.5 text-rose-400 text-sm">
+            <span>🌸</span>
+            <span>💕</span>
+            <span>✨</span>
+          </div>
+
+          <!-- Cute Wax Seal Stamp -->
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-rose-400 to-rose-600 border-2 border-pink-100 shadow-md flex items-center justify-center text-white text-lg sm:text-xl transform rotate-6">
+            💌
+          </div>
+
+          <div class="flex items-center gap-1.5 text-rose-400 text-sm">
+            <span>✨</span>
+            <span>💕</span>
+            <span>🌸</span>
+          </div>
+        </div>
+
+        <!-- Subtle Divider Line -->
+        <div class="w-full h-px bg-gradient-to-r from-transparent via-pink-300/80 to-transparent mb-5"></div>
+
+        <!-- EXACT REQUIRED VIETNAMESE LOVE MESSAGE -->
+        <div class="stationery-lines rounded-2xl px-2 py-1 text-left sm:text-center space-y-4">
+          <h2 class="letter-heading text-2xl sm:text-3xl tracking-tight">
+            Mừng ngày của anh❤️
+          </h2>
+
+          <p class="letter-body text-base sm:text-lg font-medium">
+            Chúc anh luôn hạnh phúc, vui vẻ, thật nhiều sức khỏe và mọi chuyện trong thời gian tới đều thuận lợi, suôn sẻ.
+          </p>
+
+          <p class="letter-body text-base sm:text-lg font-semibold text-[#7A3546]">
+            Iu bé heo nhìu nhìu, và bé heo cũng iu anh nhìu lắm luônnn 🐷💕
+          </p>
+        </div>
+
+        <!-- Bottom Card Ornament -->
+        <div class="mt-6 pt-3 border-t border-pink-200/60 flex items-center justify-center gap-3 text-rose-400 text-sm">
+          <span>♥</span>
+          <span class="text-xs uppercase tracking-widest font-bold text-rose-400/90">Forever Yours</span>
+          <span>♥</span>
+        </div>
+      </article>
+
+      <!-- Required Small Sweet Footer Line Below the Card -->
+      <footer class="mt-5 sm:mt-6 text-center">
+        <p class="text-xs sm:text-sm font-semibold text-rose-600/85 bg-white/65 backdrop-blur-sm px-4 py-1.5 rounded-full border border-pink-200/60 shadow-xs">
+          Made with love, just for my man. 🐷❤️
+        </p>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INTERACTIVE JAVASCRIPT: ANIMATIONS, PARTICLE EFFECTS & WEB AUDIO CHIMES
+       ======================================================================== -->
+  <script>
+    (function () {
+      // Stage elements
+      const stage1 = document.getElementById('stage1');
+      const stage2 = document.getElementById('stage2');
+      const stage3 = document.getElementById('stage3');
+
+      // Interactive triggers
+      const giftBoxTrigger = document.getElementById('giftBoxTrigger');
+      const toLetterBtn = document.getElementById('toLetterBtn');
+      const replayBtn = document.getElementById('replayBtn');
+      const soundToggleBtn = document.getElementById('soundToggleBtn');
+      const soundIcon = document.getElementById('soundIcon');
+      const particleLayer = document.getElementById('particleLayer');
+
+      let isGiftOpened = false;
+      let soundEnabled = true;
+      let audioCtx = null;
+
+      /* ----------------------------------------------------------------------
+         1. GENTLE SYNTHESIZED MUSIC-BOX CHIME (Web Audio API, zero external URLs)
+         ---------------------------------------------------------------------- */
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (AudioContextClass) {
+            audioCtx = new AudioContextClass();
+          }
+        }
+        if (audioCtx && audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+      }
+
+      function playChimeSequence(notes) {
+        if (!soundEnabled) return;
+        try {
+          initAudio();
+          if (!audioCtx) return;
+
+          const now = audioCtx.currentTime;
+          notes.forEach((freq, idx) => {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.11);
+
+            gain.gain.setValueAtTime(0.0001, now + idx * 0.11);
+            gain.gain.exponentialRampToValueAtTime(0.09, now + idx * 0.11 + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.11 + 0.75);
+
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            osc.start(now + idx * 0.11);
+            osc.stop(now + idx * 0.11 + 0.8);
+          });
+        } catch (err) {
+          // Ignore audio restrictions silently
+        }
+      }
+
+      soundToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        soundEnabled = !soundEnabled;
+        soundIcon.textContent = soundEnabled ? '🎵' : '🔇';
+        if (soundEnabled) {
+          playChimeSequence([523.25, 659.25, 783.99]); // C5 - E5 - G5
+        }
+      });
+
+      /* ----------------------------------------------------------------------
+         2. CONTINUOUS FLOATING HEARTS & SPARKLES BACKGROUND
+         ---------------------------------------------------------------------- */
+      const ambientSymbols = ['❤️', '💕', '💖', '💗', '✨', '🌸', '🤍'];
+
+      function spawnAmbientParticle() {
+        const el = document.createElement('span');
+        el.className = 'floating-heart';
+        el.textContent = ambientSymbols[Math.floor(Math.random() * ambientSymbols.length)];
+
+        const leftPos = Math.random() * 100;
+        const size = 12 + Math.random() * 16;
+        const duration = 7 + Math.random() * 7;
+        const drift = (Math.random() - 0.5) * 80;
+        const rot = (Math.random() - 0.5) * 50;
+        const maxOpacity = 0.35 + Math.random() * 0.4;
+
+        el.style.left = `${leftPos}vw`;
+        el.style.fontSize = `${size}px`;
+        el.style.animationDuration = `${duration}s`;
+        el.style.setProperty('--drift', `${drift}px`);
+        el.style.setProperty('--rot', `${rot}deg`);
+        el.style.setProperty('--max-opacity', maxOpacity.toFixed(2));
+
+        particleLayer.appendChild(el);
+
+        setTimeout(() => {
+          if (el.parentNode) el.parentNode.removeChild(el);
+        }, duration * 1000);
+      }
+
+      // Seed initial floating hearts so screen feels alive immediately
+      for (let i = 0; i < 12; i++) {
+        setTimeout(spawnAmbientParticle, i * 250);
+      }
+      setInterval(spawnAmbientParticle, 650);
+
+      /* ----------------------------------------------------------------------
+         3. INTERACTIVE CLICK/TAP HEART CONFETTI BURST
+         ---------------------------------------------------------------------- */
+      function createHeartBurst(x, y, count = 10) {
+        const burstIcons = ['❤️', '💖', '💕', '✨', '🌸', '🐷'];
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement('span');
+          p.className = 'burst-particle';
+          p.textContent = burstIcons[Math.floor(Math.random() * burstIcons.length)];
+
+          const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+          const distance = 45 + Math.random() * 85;
+          const bx = Math.cos(angle) * distance;
+          const by = Math.sin(angle) * distance - 20;
+          const brot = (Math.random() - 0.5) * 90;
+
+          p.style.left = `${x}px`;
+          p.style.top = `${y}px`;
+          p.style.fontSize = `${14 + Math.random() * 12}px`;
+          p.style.setProperty('--bx', `${bx}px`);
+          p.style.setProperty('--by', `${by}px`);
+          p.style.setProperty('--brot', `${brot}deg`);
+
+          document.body.appendChild(p);
+          setTimeout(() => {
+            if (p.parentNode) p.parentNode.removeChild(p);
+          }, 900);
+        }
+      }
+
+      // Subtle mini-hearts wherever user taps on screen
+      document.addEventListener('pointerdown', (e) => {
+        createHeartBurst(e.clientX, e.clientY, 5);
+      });
+
+      /* ----------------------------------------------------------------------
+         4. STAGE NAVIGATION LOGIC
+         ---------------------------------------------------------------------- */
+      function showStage(targetStage) {
+        [stage1, stage2, stage3].forEach((st) => {
+          if (st === targetStage) {
+            st.classList.remove('hidden-stage');
+            st.classList.add('active-stage');
+          } else {
+            st.classList.remove('active-stage');
+            st.classList.add('hidden-stage');
+          }
+        });
+      }
+
+      // Open Gift Box -> Stage 2 (Photo Reveal)
+      function openGiftBox() {
+        if (isGiftOpened) return;
+        isGiftOpened = true;
+
+        // Play magical ascending arpeggio chime
+        playChimeSequence([523.25, 659.25, 783.99, 1046.50, 1318.51]);
+
+        // Trigger lid pop & light burst animation
+        giftBoxTrigger.classList.add('opening');
+
+        // Celebrate with central burst of hearts
+        const rect = giftBoxTrigger.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        createHeartBurst(centerX, centerY, 22);
+        setTimeout(() => createHeartBurst(centerX, centerY - 25, 16), 220);
+
+        // Transition smoothly to Stage 2 after photo rises out of the gift box
+        setTimeout(() => {
+          showStage(stage2);
+          replayBtn.classList.remove('hidden');
+          replayBtn.classList.add('inline-flex');
+        }, 1050);
+      }
+
+      giftBoxTrigger.addEventListener('click', openGiftBox);
+      giftBoxTrigger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openGiftBox();
+        }
+      });
+
+      // Stage 2 -> Stage 3 (Love Letter Reveal)
+      toLetterBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playChimeSequence([587.33, 739.99, 880.00, 1174.66]); // D major warm chime
+
+        const rect = toLetterBtn.getBoundingClientRect();
+        createHeartBurst(rect.left + rect.width / 2, rect.top + rect.height / 2, 16);
+
+        showStage(stage3);
+      });
+
+      // Replay Surprise from the beginning
+      replayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isGiftOpened = false;
+        giftBoxTrigger.classList.remove('opening');
+        replayBtn.classList.add('hidden');
+        replayBtn.classList.remove('inline-flex');
+        showStage(stage1);
+      });
+    })();
+  </script>
+</body>
+</html>
